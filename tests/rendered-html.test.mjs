@@ -15,6 +15,7 @@ test('production client bundle exposes the critical blast controls', async () =>
   assert.match(js, /Duplicate delays detected/i);
   assert.match(js, /Override and allow export/i);
   assert.match(js, /duplicateDelay/i);
+  assert.match(js, /Delete H/i);
   assert.match(js, /Custom Diagonal Pattern/i);
   assert.match(js, /None/i);
   assert.match(js, /maximum 2,500 holes/i);
