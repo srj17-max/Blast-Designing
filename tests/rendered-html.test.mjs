@@ -16,6 +16,7 @@ test('production client bundle exposes the critical blast controls', async () =>
   assert.match(js, /Override and allow export/i);
   assert.match(js, /duplicateDelay/i);
   assert.match(js, /Custom Diagonal Pattern/i);
+  assert.match(js, /None/i);
   assert.match(js, /maximum 2,500 holes/i);
   assert.doesNotMatch(js, /API[_ -]?KEY|PRIVATE[_ -]?KEY|AUTH[_ -]?TOKEN/i);
 });
