@@ -80,3 +80,24 @@ header{height:54px}.brand i{width:32px;height:32px}.hero{min-height:68px;padding
   .canvasHead h2{font-size:17px;line-height:1}
   .canvasHead>span{margin-left:auto}
 }
+/* Full-height workspace: the introductory headline bar is intentionally removed. */
+.hero{display:none!important}
+@media(min-width:901px){
+  main{grid-template-rows:54px 44px minmax(0,1fr)}
+  .workspace{grid-row:3}
+  .designTools{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);overflow:visible;gap:4px}
+  .toolGroup{width:100%;min-width:0}
+  .viewTools,.manualTools{grid-column:1}
+  .sequenceTools,.positionTools{grid-column:2}
+  .viewTools,.sequenceTools{grid-row:1}
+  .manualTools,.positionTools{grid-row:2}
+  .toolGroup button{flex:1}
+  .toolGroup label{flex:1;min-width:0}
+  .toolGroup select{width:100%;min-width:0}
+  .positionTools{display:flex}
+}
+@media(min-width:600px) and (max-width:900px){
+  main{grid-template-rows:54px 44px minmax(0,1fr)}
+  .workspace{grid-row:3}
+}
+.applyDesign{position:relative;transition:transform .12s ease,background .18s ease,box-shadow .18s ease,opacity .18s ease}.applyDesign:active:not(:disabled){transform:translateY(2px) scale(.985)}.applyDesign.pending{box-shadow:0 0 0 3px #ee6f2d2e,0 5px 12px #9a3c151f}.applyDesign.confirmed{background:#247047;box-shadow:0 0 0 3px #2470472e}.applyDesign:not(.pending):not(.confirmed){background:#53645b}.applyDesign:disabled{opacity:.45;cursor:not-allowed}
