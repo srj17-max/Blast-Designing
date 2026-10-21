@@ -103,3 +103,15 @@ header{height:54px}.brand i{width:32px;height:32px}.hero{min-height:68px;padding
 .applyDesign{position:relative;transition:transform .12s ease,background .18s ease,box-shadow .18s ease,opacity .18s ease}.applyDesign:active:not(:disabled){transform:translateY(2px) scale(.985)}.applyDesign.pending{box-shadow:0 0 0 3px #ee6f2d2e,0 5px 12px #9a3c151f}.applyDesign.confirmed{background:#247047;box-shadow:0 0 0 3px #2470472e}.applyDesign:not(.pending):not(.confirmed){background:#53645b}.applyDesign:disabled{opacity:.45;cursor:not-allowed}
 .canvasDeleteHole{display:none!important}
 .canvasHoleActions{position:absolute;top:50px;right:10px;z-index:9;display:flex;flex-direction:column;align-items:center;gap:8px}.canvasHoleActions button{width:28px;height:28px;min-width:28px;padding:0;display:grid;place-items:center;border-radius:50%;border:1px solid #ffffffb8;color:#fff;font-size:18px;font-weight:900;line-height:1;cursor:pointer;transition:transform .1s ease,box-shadow .1s ease,filter .12s ease}.canvasHoleActions button:hover{filter:brightness(1.08)}.canvasHoleActions button:active{transform:translateY(3px);box-shadow:0 1px 0 #16231d,0 2px 5px #17271f38}.deleteHoleAction{background:linear-gradient(145deg,#d85843,#992d20);box-shadow:0 4px 0 #6f2018,0 6px 10px #17271f35;text-shadow:0 1px 1px #54180f}.deleteHoleAction span{font-size:13px;line-height:1;filter:grayscale(1) brightness(4)}.addHoleAction{background:linear-gradient(145deg,#45a875,#176f4b);box-shadow:0 4px 0 #0f4e34,0 6px 10px #17271f35;text-shadow:0 1px 1px #0a3a26}@media(max-width:720px){.canvasHoleActions{top:52px;right:10px;gap:9px}.canvasHoleActions button{width:28px;height:28px;min-width:28px}}@media print{.canvasHoleActions{display:none!important}}
+@media print{
+  main>header{display:none!important}
+  .printReportHeader{display:block!important;margin:0 0 5mm!important;padding:0 0 4mm!important;border-bottom:2px solid #17271f!important;background:#fff!important;color:#17271f!important}
+  .printReportHeader h1{margin:0!important;font:700 21px Georgia,serif!important;text-align:left!important}
+  .printIdentity{margin-top:4mm;display:flex!important;justify-content:space-between;gap:12mm;color:#17271f;font:700 9px Arial,sans-serif}
+  .printSummary{break-before:page;page-break-before:always;min-height:175mm;margin-top:0!important;padding:7mm!important;position:relative}
+  .printSummary .signatoryBox{width:92mm;height:38mm;margin:16mm 0 0 auto;padding:5mm;display:grid;grid-template-rows:auto 1fr auto;border:1.5px solid #17271f;color:#17271f}
+  .signatoryBox b{font-size:10px;text-transform:uppercase;letter-spacing:.06em}
+  .signatoryBox span{font-size:8px}.signatoryBox span:last-child{align-self:end}
+}
+@media print{.printReportHeader{height:auto!important}.printReportHeader .printIdentity span{color:#17271f!important;font-size:9px!important;font-weight:700!important;letter-spacing:0!important}}
+.canvasHoleActions button:disabled{opacity:.5;filter:grayscale(.7);cursor:not-allowed;box-shadow:0 2px 0 #6f756f,0 3px 6px #17271f25}.canvasHoleActions button:disabled:active{transform:none}
