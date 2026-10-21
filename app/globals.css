@@ -32,3 +32,5 @@ header{height:54px}.brand i{width:32px;height:32px}.hero{min-height:68px;padding
 @media(max-width:720px){.canvasZoom{top:6px;right:6px}.canvasZoom button{min-width:36px;height:36px}.canvasZoom b{min-width:42px}}
 .validation{display:grid;gap:5px;margin-top:10px;padding:10px;border:1px solid #d89c7d;background:#fff1e9;font-size:8px;line-height:1.4}.validation b{color:#a3311d}.validation span{color:#76511f}.applyDesign:disabled{cursor:not-allowed;opacity:.45}
 .freeFaceMark line{stroke-width:2;vector-effect:non-scaling-stroke}
+.linkHit{cursor:pointer}.delayPrompt .deleteLink{border-color:#b23b28;background:#fff0ec;color:#9b2f1e}
+.linkGroup{cursor:pointer}.linkGroup:hover>line:not(.linkHit){stroke:#9e3512}
