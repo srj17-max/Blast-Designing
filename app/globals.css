@@ -55,3 +55,28 @@ header{height:54px}.brand i{width:32px;height:32px}.hero{min-height:68px;padding
 .designTools{grid-template-columns:minmax(270px,.75fr) minmax(430px,1.25fr)}.positionTools,.manualTools{grid-column:1/-1}.positionTools{display:flex;flex-wrap:wrap}.positionTools>small{grid-row:auto}.viewTools,.sequenceTools{overflow:visible}.viewTools button{flex:1}.sequenceTools label:first-of-type{flex:1}.sequenceTools label:first-of-type select{width:100%}
 @media(max-width:850px){.designTools{grid-template-columns:1fr}.viewTools,.sequenceTools,.positionTools,.manualTools{grid-column:1/-1}}
 @media(max-width:720px){.positionTools{display:grid}}
+/* Stable, compact plan controls: selecting a hole must never resize the canvas. */
+@media(min-width:721px){
+  .designTools{display:flex;align-items:stretch;flex-wrap:nowrap;gap:4px;padding:4px;overflow-x:auto;scrollbar-width:thin}
+  .toolGroup{flex:0 0 auto;min-height:38px;gap:4px;padding:3px 5px}
+  .toolGroup>small{padding-right:5px;font-size:6px}
+  .toolGroup button,.toolGroup input,.toolGroup select{height:28px}
+  .toolGroup button{padding:5px 7px}
+  .positionTools{display:flex;grid-template-columns:none;gap:4px}
+  .positionTools>small{grid-row:auto}
+  .manualTools{grid-column:auto}
+  .manualTools .selectionStatus{display:none}
+  .holeInspector{height:44px;min-height:44px;flex:0 0 44px;padding:5px 7px;gap:6px;flex-wrap:nowrap;overflow-x:auto;align-items:center;scrollbar-width:thin}
+  .holeInspector>b{font-size:13px;white-space:nowrap}
+  .holeInspector label{display:flex;align-items:center;gap:4px;white-space:nowrap;font-size:7px}
+  .holeInspector input,.holeInspector select{width:66px;height:28px;font-size:9px}
+  .holeInspector select{width:76px}
+  .holeInspector>span{padding:6px 7px;white-space:nowrap}
+  .holeInspectorEmpty{justify-content:center;color:#77817b}
+}
+@media(min-width:721px){
+  .canvasHead{min-height:30px;margin-bottom:4px;align-items:center;justify-content:flex-start;gap:10px}
+  .canvasHead .tag{margin:0;font-size:7px}
+  .canvasHead h2{font-size:17px;line-height:1}
+  .canvasHead>span{margin-left:auto}
+}
