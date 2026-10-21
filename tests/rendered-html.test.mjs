@@ -12,7 +12,7 @@ test('production client bundle exposes the critical blast controls', async () =>
   assert.match(js, /Export PDF/i);
   assert.match(js, /Blast Pattern & Delay Design/i);
   assert.match(js, /Design data/i);
-  assert.match(js, /Export blocked:/i);
+  assert.match(js, /Duplicate delays detected/i);
   assert.match(js, /Override and allow export/i);
   assert.match(js, /duplicateDelay/i);
   assert.match(js, /Custom Diagonal Pattern/i);
