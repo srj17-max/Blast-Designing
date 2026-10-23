@@ -170,3 +170,4 @@ header{height:54px}.brand i{width:32px;height:32px}.hero{min-height:68px;padding
 .popupHoleColumn.decked .chargeColumn.lowerDeck{left:8px;right:8px;bottom:8px;height:25%}
 .popupHoleColumn.decked .chargeColumn.upperDeck{left:8px;right:8px;bottom:45%;height:21%}
 .popupHoleColumn.decked .deckSeparator{left:8px;right:8px}
+.customDelayInput{display:inline-flex;align-items:center;gap:8px}.customDelayInput input{width:112px}
