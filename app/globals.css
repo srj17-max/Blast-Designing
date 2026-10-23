@@ -203,3 +203,33 @@ header{height:54px}.brand i{width:32px;height:32px}.hero{min-height:68px;padding
 .delayPrompt label{align-items:flex-start}.delayPrompt select{height:36px;min-width:126px;padding:0 30px 0 9px;border:1px solid #aeb5af;background:#fff;color:var(--ink);font-weight:700}.customDelayInput{gap:6px}.customDelayInput input{width:84px}
 @media(max-width:720px){.delayPrompt label{display:grid;grid-template-columns:54px minmax(0,1fr);align-items:center}.delayPrompt select{width:100%;min-width:0}.customDelayInput{grid-column:2}.customDelayInput input{width:100%;min-width:0}}
 @media(min-width:901px){.designTools{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}.positionTools button{min-width:0}.manualTools button{min-width:0}}
+.popupSectionActions{display:flex;justify-content:flex-end;gap:8px;margin-top:16px;padding-top:12px;border-top:1px solid #d7dad5}.popupSectionActions button{height:36px;padding:0 16px;border:1px solid #aeb5af;background:#fff;color:var(--ink);font-size:8px;font-weight:900;text-transform:uppercase;cursor:pointer}.popupSectionActions .apply{border-color:var(--orange);background:var(--orange);color:#fff}@media(max-width:560px){.popupSectionActions button{flex:1}}
+/* Keep the existing sidebar widths while fitting both panels within the viewport. */
+@media(min-width:901px){
+  .controls,.results{overflow:hidden;padding:10px 12px}
+  .controls .title{margin-bottom:8px;gap:8px}
+  .controls .title i{width:26px;height:26px;font-size:8px}
+  .controls .title h2{font-size:20px;line-height:1.05}
+  .controls .toggle{height:34px;margin-bottom:10px}
+  .controls .toggle button{padding:5px;font-size:8px}
+  .controls .fields{gap:7px 6px}
+  .controls .fields label>span{min-height:14px;margin-bottom:2px;font-size:6.5px;line-height:1.1}
+  .controls .fields label>div{height:31px}
+  .controls .fields input{padding:0 6px;font-size:13px}
+  .controls .fields small{padding-right:5px;font-size:7px}
+  .controls .applyDesign{height:34px;margin-top:10px;padding:0 8px;font-size:8px}
+  .controls .notice{margin-top:10px;padding:9px}
+  .controls .notice b{font-size:7px}
+  .controls .notice p{margin-top:4px;font-size:7px;line-height:1.35}
+  .controls .help{margin:-3px 0 8px;font-size:8px;line-height:1.35}
+  .controls .callout{margin-top:9px;padding:9px;font-size:7px}
+  .controls .callout b{margin:4px 0;font-size:19px}
+  .results>.tag{margin-bottom:8px;font-size:7px}
+  .results .metric{padding:6px 0}
+  .results .metric>span{font-size:6.5px}
+  .results .metric b{font-size:20px;line-height:1.05}
+  .results .metric small{padding-bottom:2px;font-size:6.5px}
+  .results hr{margin:8px 0 3px}
+  .results .bar{height:4px;margin-top:4px}
+  .results .model{margin:5px 0;font-size:6.5px;line-height:1.3}
+}
