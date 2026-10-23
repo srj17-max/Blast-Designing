@@ -143,3 +143,21 @@ header{height:54px}.brand i{width:32px;height:32px}.hero{min-height:68px;padding
 .popupSectionDetails .deckToggle span{display:flex;align-items:center;gap:7px}
 @media(max-width:720px){.sectionHoles article{width:132px;min-width:132px;grid-template-rows:auto auto 160px auto auto auto}}
 @media(max-width:560px){.popupDeckControls{grid-template-columns:1fr}}
+/* Compact sectional cards: horizontal navigation only */
+.sectionView{overflow-x:auto;overflow-y:hidden}
+.sectionHoles{box-sizing:border-box;height:calc(100% - 30px);padding:7px 9px;gap:8px;align-items:stretch}
+.sectionHoles article,.sectionHoles article.decked{box-sizing:border-box;width:150px;min-width:150px;height:100%;padding:7px;gap:4px;grid-template-rows:auto auto minmax(92px,1fr) auto auto auto;overflow:hidden}
+.sectionHoles article>header{padding-bottom:4px}
+.sectionHoles .holeSection{height:100%;min-height:92px;max-height:126px}
+.sectionHoles .deckToggle{min-height:18px}
+.sectionHoles .deckControls{grid-template-columns:1fr 1fr;gap:4px;padding:5px}
+.sectionHoles .deckControls label{gap:2px;font-size:6px}
+.sectionHoles .deckControls input,.sectionHoles .deckControls select{height:24px;padding:0 3px;font-size:8px}
+.sectionHoles article>label:not(.deckToggle){gap:2px}
+.sectionHoles article>label:not(.deckToggle) select{height:24px}
+.sectionHoles .chargeTime{padding:4px;grid-template-columns:1fr 1fr;align-items:center}
+.sectionHoles .chargeTime small{grid-column:1/-1}
+@media(max-width:720px){.sectionView{overflow-x:auto;overflow-y:hidden}.sectionHoles{height:calc(100% - 30px)}.sectionHoles article,.sectionHoles article.decked{width:140px;min-width:140px;height:100%;grid-template-rows:auto auto minmax(78px,1fr) auto auto auto}.sectionHoles .holeSection{height:100%;min-height:78px;max-height:110px}}
+.sectionHoles article,.sectionHoles article.decked{grid-template-rows:auto auto minmax(62px,1fr) auto auto auto;gap:3px}
+.sectionHoles .holeSection{min-height:62px;max-height:105px}
+@media(max-width:720px){.sectionHoles article,.sectionHoles article.decked{grid-template-rows:auto auto minmax(56px,1fr) auto auto auto}.sectionHoles .holeSection{min-height:56px;max-height:90px}}
