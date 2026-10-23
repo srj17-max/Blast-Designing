@@ -161,3 +161,12 @@ header{height:54px}.brand i{width:32px;height:32px}.hero{min-height:68px;padding
 .sectionHoles article,.sectionHoles article.decked{grid-template-rows:auto auto minmax(62px,1fr) auto auto auto;gap:3px}
 .sectionHoles .holeSection{min-height:62px;max-height:105px}
 @media(max-width:720px){.sectionHoles article,.sectionHoles article.decked{grid-template-rows:auto auto minmax(56px,1fr) auto auto auto}.sectionHoles .holeSection{min-height:56px;max-height:90px}}
+/* Two explosive columns for deck charged holes */
+.decked .chargeColumn.lowerDeck{bottom:5px;height:25%}
+.decked .chargeColumn.upperDeck{top:auto;bottom:45%;height:21%;background:linear-gradient(#f19a55,#cf5a25);z-index:1}
+.decked .deckSeparator{left:5px;right:5px;bottom:33%;height:8%;border-top:2px solid #f4efe1;border-bottom:2px solid #f4efe1;background:#817864;z-index:2}
+.decked .dthMarker:not(.deckMarker){bottom:18%}
+.decked .dthMarker.deckMarker{bottom:55%;color:#7c2415;z-index:3}
+.popupHoleColumn.decked .chargeColumn.lowerDeck{left:8px;right:8px;bottom:8px;height:25%}
+.popupHoleColumn.decked .chargeColumn.upperDeck{left:8px;right:8px;bottom:45%;height:21%}
+.popupHoleColumn.decked .deckSeparator{left:8px;right:8px}
