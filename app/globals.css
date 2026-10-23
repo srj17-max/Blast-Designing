@@ -171,3 +171,35 @@ header{height:54px}.brand i{width:32px;height:32px}.hero{min-height:68px;padding
 .popupHoleColumn.decked .chargeColumn.upperDeck{left:8px;right:8px;bottom:45%;height:21%}
 .popupHoleColumn.decked .deckSeparator{left:8px;right:8px}
 .customDelayInput{display:inline-flex;align-items:center;gap:8px}.customDelayInput input{width:112px}
+/* Compact, proportional Live Plan View controls. */
+@media(min-width:901px){
+  .designTools{grid-template-columns:minmax(420px,.9fr) minmax(560px,1.1fr);gap:3px;padding:3px}
+  .toolGroup{min-height:32px;height:32px;gap:4px;padding:2px 4px}
+  .toolGroup>small{flex:0 0 auto;padding-right:5px;font-size:6px}
+  .toolGroup button,.toolGroup input,.toolGroup select{height:26px;min-height:26px;font-size:8px}
+  .toolGroup button{padding:3px 7px}
+  .viewTools button{min-width:0}
+  .sequenceTools label{display:flex;align-items:center;gap:4px;font-size:7px}
+  .sequenceTools label:first-of-type{flex:1.6}
+  .sequenceTools label:last-of-type{flex:.9}
+  .sequenceTools select{height:26px;padding:0 22px 0 7px}
+  .positionTools{flex-wrap:nowrap;gap:4px}
+  .positionTools .scopeLabel{flex:0 0 auto;font-size:7px}
+  .positionTools button{flex:0 1 104px;min-width:74px}
+  .positionTools input{width:46px;min-width:46px;padding:0 6px}
+  .manualTools button{flex:0 1 150px;min-width:90px}
+  .manualTools label{display:flex;align-items:center;gap:4px;flex:0 0 auto;font-size:7px}
+  .manualTools label input{width:58px;min-width:58px;padding:0 6px}
+  .manualTools .selectionStatus{min-width:0;margin-left:auto;overflow:hidden;text-overflow:ellipsis}
+  .holeInspector{height:36px;min-height:36px;flex-basis:36px;padding:3px 6px;gap:5px;overflow:hidden}
+  .holeInspector>b{min-width:92px;margin-right:auto;font-size:12px}
+  .holeInspector label{gap:3px;font-size:6px}
+  .holeInspector input{width:52px;height:24px;padding:0 5px;font-size:8px}
+  .holeInspector select{width:76px;height:24px;padding:0 5px;font-size:8px}
+  .holeInspector label:nth-of-type(5) select{width:70px}
+  .holeInspector label:nth-of-type(6) select{width:86px}
+  .holeInspector>span{padding:5px 6px;font-size:7px}
+}
+.delayPrompt label{align-items:flex-start}.delayPrompt select{height:36px;min-width:126px;padding:0 30px 0 9px;border:1px solid #aeb5af;background:#fff;color:var(--ink);font-weight:700}.customDelayInput{gap:6px}.customDelayInput input{width:84px}
+@media(max-width:720px){.delayPrompt label{display:grid;grid-template-columns:54px minmax(0,1fr);align-items:center}.delayPrompt select{width:100%;min-width:0}.customDelayInput{grid-column:2}.customDelayInput input{width:100%;min-width:0}}
+@media(min-width:901px){.designTools{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}.positionTools button{min-width:0}.manualTools button{min-width:0}}
