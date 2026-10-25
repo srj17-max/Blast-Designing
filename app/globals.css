@@ -238,5 +238,16 @@ header{height:54px}.brand i{width:32px;height:32px}.hero{min-height:68px;padding
   .results .model:last-child{flex:1;min-height:45px;display:flex;flex-direction:column;justify-content:center}
 }
 .manualTools .dthDefaultControl{padding-left:8px;border-left:1px solid #d9dbd5}.manualTools .dthDefaultControl select{width:76px;padding:0 22px 0 7px}@media(max-width:720px){.manualTools .dthDefaultControl{padding-left:0;border-left:0}.manualTools .dthDefaultControl select{width:100%}}
+/* Prevent manual timing controls from collapsing into each other at narrow desktop widths. */
+@media(min-width:721px){
+  .manualTools{display:grid;grid-template-columns:auto minmax(88px,1fr) minmax(108px,auto) minmax(102px,auto);align-items:center}
+  .manualTools>small,.manualTools>button,.manualTools>label{min-width:0;max-width:100%}
+  .manualTools>button{width:100%;overflow:hidden;text-overflow:ellipsis}
+  .manualTools>label{display:grid;grid-template-columns:auto 52px auto;gap:4px;overflow:hidden}
+  .manualTools>label input{width:52px;min-width:0}
+  .manualTools .dthDefaultControl{grid-template-columns:auto minmax(64px,1fr)}
+  .manualTools .dthDefaultControl select{width:100%;min-width:0}
+  .manualTools .selectionStatus{display:none}
+}
 .sectionHoles .deckControls .secondaryChargeControl{grid-column:1/-1}.popupDeckControls{grid-template-columns:repeat(2,minmax(0,1fr))}
 .depthWarningPrompt .apply{background:#9d3027}.depthWarningPrompt p b{color:#17271f}
