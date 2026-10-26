@@ -18,6 +18,7 @@ test('production client bundle exposes the critical blast controls', async () =>
   assert.match(js, /Delete H/i);
   assert.match(js, /V Pattern/i);
   assert.match(js, /Set north direction/i);
+  assert.match(js, /requestAnimationFrame/i);
   assert.match(js, /Diagonal/i);
   assert.doesNotMatch(js, /Custom Diagonal Pattern/i);
   assert.match(js, /None/i);
