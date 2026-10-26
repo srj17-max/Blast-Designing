@@ -135,3 +135,50 @@ The complete corrected files are committed in the repository:
 - Hole inclination, deck charging, in-hole detonator delay, initiation-system range limits, contour plotting, persistence, import, PDF/image export, reset, print, and backend storage are not implemented. They were not silently simulated.
 - Automated cross-browser execution was available only in the in-app Chromium surface. Safari, Firefox, and Edge remain unconfirmed.
 - No committed visual baseline exists, so pixel-level visual regression is inconclusive.
+
+---
+
+## 2026-10-26 audit addendum
+
+This addendum supersedes older implementation notes where they conflict with the current application.
+
+### Summary
+
+| ID | Finding | Severity | Status |
+|---|---|---:|---|
+| BUG-006 | Local and secondary deck charge were omitted from summary explosive mass | High | Fixed |
+| BUG-007 | A zero-kilogram secondary deck could alter the ±7 ms maximum-charge window | High | Fixed |
+| BUG-008 | Global hole defaults were synchronized by a render/effect state cascade | Medium | Fixed |
+| BUG-009 | Workflow tabs and live output lacked complete state semantics | Medium | Fixed |
+| BUG-010 | Compact row controls could overlap at desktop widths | Medium | Fixed |
+
+### Calculation verification
+
+- Rock volume: `holes × burden × spacing × bench height`.
+- Rock mass: `rock volume × rock density`.
+- Charge factor: `total explosive ÷ rock mass`, displayed in kg/t.
+- User-defined powder factor: `rock mass ÷ total explosive`, displayed in t/kg.
+- Scaled distance: `distance ÷ √(maximum charge in the configured firing window)`.
+- PPV screening model: `K × scaled distance⁻ⁿ`; K, n, distance, and criterion remain visible and editable.
+- Total explosive now sums each hole's primary charge and a positive secondary charge only when deck charging is enabled.
+- Maximum charge per delay includes positive charge events whose firing times fall in a ±7 ms window. A zero-charge deck no longer creates a firing window.
+
+### Verification evidence
+
+| Test | Expected | Actual |
+|---|---|---|
+| Default-like 40-hole calculation | 600 m³; 1,380 t; 0.08058 kg/t | Passed |
+| 300 m and 5.56 kg maximum charge | 127.228 m/√kg; 0.489 mm/s | Passed |
+| No connected firing charge | PPV 0; scaled distance unavailable | Passed |
+| Events at 100, 107, and 115 ms | Maximum ±7 ms window charge 5.56 kg | Passed |
+| Deck disabled/enabled total | Disabled secondary omitted; enabled secondary included | Passed |
+| 9 rows × 8 holes | 72 holes after Apply | Passed in production browser build |
+| Diagonal, 72 holes | 71 directed connections | Passed in production browser build |
+| Distance changed to 150 m | No leading zero; PPV 1.48 mm/s; SD 63.6 m/√kg | Passed in production browser build |
+
+### Remaining engineering limits
+
+- The PPV output is a screening prediction, not a site law. Site-specific constants require regression from monitored blasts.
+- Full formula comparison against licensed Konya & Walter and Hustrulid text remains unverified. The interface keeps assumptions editable and labels the design as conceptual.
+- No committed visual baseline exists, so visual regression remains inconclusive.
+- Firefox, Safari, and Edge require separate execution; current automated browser evidence is Chromium based.
