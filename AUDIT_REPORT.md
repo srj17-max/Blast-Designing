@@ -1,4 +1,4 @@
-# BlastDesign Studio QA Audit
+# BlastCanvas QA Audit
 
 Date: 21 October 2026
 Audited target: `https://blast-designing.pages.dev/` and this repository

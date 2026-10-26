@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "BlastDesign Studio",
+  title: "BlastCanvas",
   description: "Interactive blast pattern, delay and performance design workspace.",
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
 };
