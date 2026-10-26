@@ -272,3 +272,4 @@ nav button[aria-selected="true"]{view-transition-name:active-workflow-tab}
 .designTools .toolOn{background:#b7481c;border-color:#b7481c}
 .delayLegend{color:#626b65}
 .metric>span,.metric small{color:#626b65}
+.results .model{color:#626b65}
