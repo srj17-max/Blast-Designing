@@ -465,3 +465,48 @@ nav{
 }
 .canvasZoom button{background:rgba(255,255,252,.86);box-shadow:inset 0 1px 0 #fff}
 @media print{body{background:#fff!important}.workspace,.controls,.results,.designTools,.holeInspector,.toolGroup,.metric,.checks article,.notice,.callout{background:#fff!important}}
+
+/* Cohesive motion and interaction system. */
+body{background-size:140% 140%,145% 145%,100% 100%;animation:ambientMineralShift 24s ease-in-out infinite alternate}
+.controls{view-transition-name:control-panel}.canvas{view-transition-name:canvas-panel}.results{view-transition-name:results-panel}
+::view-transition-old(control-panel),::view-transition-old(canvas-panel),::view-transition-old(results-panel){animation:panelLeave .16s ease both}
+::view-transition-new(control-panel),::view-transition-new(canvas-panel),::view-transition-new(results-panel){animation:panelEnter .24s cubic-bezier(.2,.8,.2,1) both}
+.view-plan .diagramFrame,.view-section .sectionView,.view-table .holeTable{animation:viewContentEnter .24s cubic-bezier(.2,.8,.2,1) both}
+
+button{position:relative;isolation:isolate}
+button:not(:disabled){will-change:transform}
+@media(hover:hover){
+  button:not(:disabled):hover{transform:translateY(-1px);box-shadow:0 5px 14px rgba(28,39,34,.13)}
+  .viewTools button:hover,.toggle button:hover,nav button:hover{background-color:rgba(255,255,255,.64)}
+  .canvasZoom button:hover:not(:disabled),.canvasAnimationControls button:hover:not(:disabled),.canvasHoleActions button:hover:not(:disabled){transform:translateY(-2px) scale(1.04)}
+}
+button:not(:disabled):active{transform:translateY(1px) scale(.975);box-shadow:0 1px 4px rgba(28,39,34,.16)}
+nav button[aria-selected="true"],.viewTools .toolOn,.toggle .on{
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.24),0 5px 14px rgba(34,47,40,.16);
+}
+.viewTools .toolOn::after,.toggle .on::after{
+  content:"";position:absolute;left:18%;right:18%;bottom:3px;height:2px;border-radius:2px;background:rgba(255,255,255,.72);opacity:.7
+}
+.metric b{animation:resultValueIn .34s cubic-bezier(.2,.8,.2,1) both;transform-origin:left center}
+.callout b,.chargeTime strong,.surfaceArrival strong{transition:color .18s ease,transform .18s ease}
+
+.canvasZoom,.canvasAnimationControls button,.canvasHoleActions button{transition:transform .16s cubic-bezier(.2,.8,.2,1),box-shadow .18s ease,filter .18s ease,background-color .18s ease}
+.canvasAnimationControls button,.canvasHoleActions button{
+  width:30px;height:30px;min-width:30px;border:1px solid rgba(255,255,255,.78);
+  box-shadow:0 5px 0 rgba(25,43,35,.55),0 9px 18px rgba(25,37,32,.18),inset 0 1px 0 rgba(255,255,255,.34)
+}
+.canvasAnimationControls button:active:not(:disabled),.canvasHoleActions button:active:not(:disabled){transform:translateY(3px) scale(.97);box-shadow:0 1px 0 rgba(25,43,35,.6),0 3px 7px rgba(25,37,32,.18)}
+.canvasAnimationControls,.canvasHoleActions{gap:9px}
+
+.modalShade{animation-duration:.2s}
+.modalShade>.delayPrompt,.modalShade>.holeSectionPopup{animation-duration:.3s;transform-origin:center 42%}
+@supports (appearance:base-select){
+  ::picker(select){box-shadow:0 24px 60px rgba(25,36,31,.24),inset 0 1px 0 #fff;border-color:rgba(255,255,255,.88);background:rgba(255,254,250,.94);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px)}
+}
+@keyframes ambientMineralShift{0%{background-position:0% 0%,100% 0%,0 0}100%{background-position:8% 5%,92% 7%,0 0}}
+@keyframes panelLeave{to{opacity:.2;transform:translateY(4px) scale(.995)}}
+@keyframes panelEnter{from{opacity:.15;transform:translateY(7px) scale(.992)}to{opacity:1;transform:none}}
+@keyframes viewContentEnter{from{opacity:.15;transform:translateY(8px);filter:blur(2px)}to{opacity:1;transform:none;filter:none}}
+@keyframes resultValueIn{0%{opacity:.25;transform:translateY(5px) scale(.985)}55%{opacity:1;transform:translateY(-1px) scale(1.015)}100%{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){body{animation:none!important}.view-plan .diagramFrame,.view-section .sectionView,.view-table .holeTable,.metric b{animation:none!important}::view-transition-old(*),::view-transition-new(*){animation-duration:.01ms!important}}
+@media print{body{animation:none!important}.view-plan .diagramFrame,.view-section .sectionView,.view-table .holeTable,.metric b{animation:none!important}}
