@@ -293,3 +293,41 @@ select{cursor:pointer}
   option:hover,option:focus{background:#f3eee5}
   option:checked{background:#f4dfd1;color:#8f3516;font-weight:800}
 }
+
+/* Restrained interaction polish: fast, spatially consistent, and non-blocking. */
+html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+h1,h2,h3,.title h2{text-wrap:balance}
+.help,.notice p,.model,.connectHint{text-wrap:pretty}
+.metric b,.callout b,.delayLegend,.holeTable td,.fields input{font-variant-numeric:tabular-nums}
+.fields label>div{transition:border-color .16s ease,box-shadow .16s ease,background-color .16s ease,transform .16s ease}
+.fields label:focus-within>div{border-color:#9b4b27;background:#fffdfa;box-shadow:0 0 0 3px #ee6f2d1c;transform:translateY(-1px)}
+.toolGroup,.holeInspector,.metric,.checks article{transition:border-color .18s ease,background-color .18s ease,box-shadow .18s ease,transform .18s ease}
+.designTools button,.toggle button,.exportActions button,.delayPrompt button,.popupSectionActions button{transition:transform .14s ease,background-color .18s ease,border-color .18s ease,color .18s ease,box-shadow .18s ease}
+.designTools button:active,.toggle button:active,.exportActions button:active,.delayPrompt button:active,.popupSectionActions button:active{transform:scale(.97)}
+.modalShade{animation:softBackdropIn .16s ease-out both}
+.modalShade>.delayPrompt,.modalShade>.holeSectionPopup{animation:softDialogIn .22s cubic-bezier(.2,.8,.2,1) both}
+.validation,.connectHint{animation:softNoticeIn .2s ease-out both}
+.designer{animation:softCanvasIn .2s ease-out both}
+.linkGroup{animation:softLinkIn .18s ease-out both}
+.draggable circle{transition:stroke .16s ease,stroke-width .16s ease,filter .18s ease,opacity .18s ease}
+.holeInspector:not(.holeInspectorEmpty){animation:softInspectorIn .18s ease-out both}
+.sectionHoles article:hover{transform:translateY(-2px);box-shadow:0 6px 18px #17271f13}
+.bar i{transition:width .32s cubic-bezier(.2,.8,.2,1),background-color .18s ease}
+.designJustApplied .metric b{animation:metricConfirm .46s cubic-bezier(.2,.8,.2,1)}
+.designJustApplied .canvas{animation:canvasConfirm .55s ease-out}
+.stemmingCalculated .fields label:has(input[aria-label="Stemming"])>div{animation:calculatedField .56s ease-out}
+@media(hover:hover){
+  .designTools button:hover,.toggle button:hover,.exportActions button:hover{transform:translateY(-1px);box-shadow:0 4px 12px #17271f12}
+  .metric:hover{background:#ffffff73;transform:translateX(2px)}
+  .linkGroup:hover line:not(.linkHit){filter:drop-shadow(0 1px 2px #c84f1840)}
+}
+@keyframes softBackdropIn{from{opacity:0}to{opacity:1}}
+@keyframes softDialogIn{from{opacity:0;transform:translateY(10px) scale(.985);filter:blur(2px)}to{opacity:1;transform:none;filter:none}}
+@keyframes softNoticeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+@keyframes softCanvasIn{from{opacity:.72;transform:translateY(3px)}to{opacity:1;transform:none}}
+@keyframes softLinkIn{from{opacity:0}to{opacity:1}}
+@keyframes softInspectorIn{from{opacity:0;transform:translateY(-3px)}to{opacity:1;transform:none}}
+@keyframes metricConfirm{0%{color:var(--ink);transform:translateY(0)}35%{color:#a6451f;transform:translateY(-2px)}100%{color:var(--ink);transform:translateY(0)}}
+@keyframes canvasConfirm{0%{box-shadow:inset 0 0 0 0 #ee6f2d00}35%{box-shadow:inset 0 0 0 2px #ee6f2d38}100%{box-shadow:inset 0 0 0 0 #ee6f2d00}}
+@keyframes calculatedField{0%{border-color:#bdc1bc;background:#fff}35%{border-color:#c75b27;background:#fff4e9;box-shadow:0 0 0 3px #ee6f2d24}100%{border-color:#bdc1bc;background:#fff;box-shadow:none}}
+@media print{.modalShade,.validation,.connectHint,.designer,.linkGroup,.holeInspector,.metric b,.canvas{animation:none!important}.sectionHoles article{transform:none!important;box-shadow:none!important}}
