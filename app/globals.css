@@ -335,3 +335,9 @@ h1,h2,h3,.title h2{text-wrap:balance}
 /* Parameter inputs use a quiet neutral focus treatment; calculated fields keep their brief amber feedback. */
 .fields input:focus-visible{outline:0}
 .fields label:focus-within>div{border-color:#7e8982;box-shadow:0 0 0 2px #17271f14;background:#fff;transform:none}
+/* Vertically center compact LOV values and their disclosure icons. */
+select{vertical-align:middle;line-height:1;padding-block:0}
+@supports (appearance:base-select){
+  select{display:inline-flex;align-items:center}
+  select::picker-icon{align-self:center;margin-block:auto}
+}
