@@ -582,3 +582,16 @@ nav button.active{color:#7f3218;background:rgba(183,72,28,.10);border-color:rgba
   .results hr{margin:11px 0 3px}
   .results .model{margin:6px 0;font-size:7px;line-height:1.35}
 }
+
+/* Separated rounded surfaces with restrained depth. */
+.workspace{gap:6px;padding:6px;border-radius:16px;overflow:hidden}
+.controls,.canvas,.results{border:1px solid rgba(255,255,255,.9)!important;border-radius:12px;box-shadow:0 8px 22px rgba(31,42,37,.11),inset 0 1px 0 rgba(255,255,255,.92)}
+.canvas{background:rgba(255,254,250,.68)}
+.controls .toggle{gap:3px;padding:3px;border:0;border-radius:9px;background:rgba(218,221,215,.72);box-shadow:inset 0 1px 2px rgba(33,43,38,.1)}
+.controls .toggle button{border-radius:6px}
+.fields label>div{border-radius:7px;box-shadow:0 3px 8px rgba(31,42,37,.07),inset 0 1px 0 #fff}
+.applyDesign{border-radius:7px;box-shadow:0 5px 12px rgba(31,42,37,.13)}
+.notice{border-radius:8px;box-shadow:0 4px 12px rgba(31,42,37,.07)}
+.results .metric{margin-bottom:4px;padding-inline:6px;border:1px solid rgba(255,255,255,.86);border-radius:8px;background:rgba(255,255,255,.38);box-shadow:0 4px 12px rgba(31,42,37,.07),inset 0 1px 0 #fff}
+@media(max-width:720px){.workspace{gap:5px;padding:5px;border-radius:13px}}
+@media print{.workspace{gap:0!important;padding:0!important;border-radius:0!important;overflow:visible!important}.controls,.canvas,.results,.metric{border-radius:0!important;box-shadow:none!important}}
