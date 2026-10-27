@@ -510,3 +510,24 @@ nav button[aria-selected="true"],.viewTools .toolOn,.toggle .on{
 @keyframes resultValueIn{0%{opacity:.25;transform:translateY(5px) scale(.985)}55%{opacity:1;transform:translateY(-1px) scale(1.015)}100%{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){body{animation:none!important}.view-plan .diagramFrame,.view-section .sectionView,.view-table .holeTable,.metric b{animation:none!important}::view-transition-old(*),::view-transition-new(*){animation-duration:.01ms!important}}
 @media print{body{animation:none!important}.view-plan .diagramFrame,.view-section .sectionView,.view-table .holeTable,.metric b{animation:none!important}}
+
+/* Performance pass: keep text crisp and animate only compositor-friendly layers. */
+body{animation:none}
+main{position:relative;isolation:isolate}
+main::before{
+  content:"";position:fixed;z-index:-1;inset:-12%;pointer-events:none;
+  background:radial-gradient(circle at 20% 16%,rgba(198,80,28,.10),transparent 30%),radial-gradient(circle at 80% 22%,rgba(48,78,93,.12),transparent 34%);
+  transform:translate3d(-1.5%,-1%,0) scale(1.02);animation:ambientGlassDrift 28s ease-in-out infinite alternate;will-change:transform
+}
+.controls,.canvas,.results{view-transition-name:none}
+.view-plan .diagramFrame,.view-section .sectionView,.view-table .holeTable{animation:crispViewEnter .18s cubic-bezier(.22,.75,.28,1) both}
+button:not(:disabled){will-change:auto}
+.draggable circle{transform-box:fill-box;transform-origin:center;transition:transform .14s cubic-bezier(.2,.8,.2,1),stroke .14s ease,stroke-width .14s ease,filter .16s ease,opacity .16s ease}
+@media(hover:hover){
+  .draggable:hover circle{transform:scale(1.09);filter:drop-shadow(0 3px 4px rgba(23,39,31,.26));stroke-width:3.5px}
+  .draggable:active circle{transform:scale(1.035);filter:drop-shadow(0 1px 2px rgba(23,39,31,.2))}
+}
+@keyframes crispViewEnter{from{opacity:.72;transform:translate3d(0,4px,0)}to{opacity:1;transform:none}}
+@keyframes ambientGlassDrift{from{transform:translate3d(-1.5%,-1%,0) scale(1.02)}to{transform:translate3d(1.5%,1%,0) scale(1.035)}}
+@media(prefers-reduced-motion:reduce){main::before{animation:none!important}.view-plan .diagramFrame,.view-section .sectionView,.view-table .holeTable{animation:none!important}.draggable circle{transition:none!important}}
+@media print{main::before{display:none!important}}
