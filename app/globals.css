@@ -341,3 +341,76 @@ select{vertical-align:middle;line-height:1;padding-block:0}
   select{display:inline-flex;align-items:center}
   select::picker-icon{align-self:center;margin-block:auto}
 }
+
+/* Industrial glass surfaces. The drawing sheet and data-entry faces stay
+   opaque so geometry, timing labels and numeric values retain full contrast. */
+:root{
+  --glass-surface:rgba(249,247,241,.78);
+  --glass-surface-strong:rgba(255,254,250,.92);
+  --glass-edge:rgba(255,255,255,.72);
+  --glass-line:rgba(91,103,96,.22);
+  --glass-shadow:0 12px 32px rgba(30,38,34,.10),inset 0 1px 0 rgba(255,255,255,.68);
+}
+body{
+  background:
+    radial-gradient(circle at 8% 5%,rgba(199,91,39,.08),transparent 25rem),
+    radial-gradient(circle at 92% 18%,rgba(63,87,76,.08),transparent 30rem),
+    #eeece5;
+}
+header{
+  background:rgba(37,42,45,.93);
+  border-bottom:1px solid rgba(255,255,255,.12);
+  box-shadow:0 8px 28px rgba(20,25,23,.16);
+  -webkit-backdrop-filter:blur(18px) saturate(115%);
+  backdrop-filter:blur(18px) saturate(115%);
+}
+nav,.workspace,.controls,.results,.designTools,.holeInspector,.toolGroup{
+  background:var(--glass-surface);
+  border-color:var(--glass-line);
+  box-shadow:var(--glass-shadow);
+  -webkit-backdrop-filter:blur(15px) saturate(108%);
+  backdrop-filter:blur(15px) saturate(108%);
+}
+.canvasHead,.delayLegend,.sectionToolbar,.holeTableWrap{
+  background:rgba(249,247,241,.86);
+  border-color:var(--glass-line);
+  -webkit-backdrop-filter:blur(10px) saturate(105%);
+  backdrop-filter:blur(10px) saturate(105%);
+}
+.metric,.checks article,.notice,.callout{
+  background:rgba(255,254,250,.63);
+  border-color:rgba(91,103,96,.18);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.72);
+}
+.fields label>div,input,select,textarea,.holeInspector input,.holeInspector select{
+  background:rgba(255,255,252,.94);
+}
+.canvasZoom{
+  background:rgba(249,247,241,.84);
+  border-color:rgba(91,103,96,.28);
+  box-shadow:0 10px 28px rgba(30,38,34,.14),inset 0 1px 0 rgba(255,255,255,.8);
+  -webkit-backdrop-filter:blur(16px) saturate(110%);
+  backdrop-filter:blur(16px) saturate(110%);
+}
+.canvasZoom button{background:rgba(255,255,252,.78)}
+.northCompass{background:rgba(255,255,252,.82);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.modalShade{background:rgba(22,29,26,.42);-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px)}
+.modalShade>.delayPrompt,.modalShade>.holeSectionPopup{
+  background:var(--glass-surface-strong);
+  border:1px solid var(--glass-edge);
+  box-shadow:0 24px 70px rgba(20,28,24,.28),inset 0 1px 0 #fff;
+  -webkit-backdrop-filter:blur(24px) saturate(112%);
+  backdrop-filter:blur(24px) saturate(112%);
+}
+/* Preserve the drawing as a clean technical sheet. */
+.canvas,.svg,.sectionHoles article,.holeTable{background:#fffefb}
+@supports not ((-webkit-backdrop-filter:blur(1px)) or (backdrop-filter:blur(1px))){
+  nav,.workspace,.controls,.results,.designTools,.holeInspector,.toolGroup{background:#f8f6f0}
+  .canvasZoom,.canvasHead,.delayLegend,.sectionToolbar,.holeTableWrap{background:#faf8f2}
+  .modalShade>.delayPrompt,.modalShade>.holeSectionPopup{background:#fffefb}
+}
+@media print{
+  body,header,nav,.workspace,.controls,.results,.designTools,.holeInspector,.toolGroup,.canvasHead,.delayLegend,.sectionToolbar,.holeTableWrap,.modalShade>.delayPrompt,.modalShade>.holeSectionPopup{
+    background:#fff!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important
+  }
+}
