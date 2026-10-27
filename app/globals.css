@@ -533,3 +533,28 @@ button:not(:disabled){will-change:auto}
 @keyframes ambientGlassDrift{from{transform:translate3d(-1.5%,-1%,0) scale(1.02)}to{transform:translate3d(1.5%,1%,0) scale(1.035)}}
 @media(prefers-reduced-motion:reduce){main::before{animation:none!important}.view-plan .diagramFrame,.view-section .sectionView,.view-table .holeTable{animation:none!important}.draggable circle{transition:none!important}}
 @media print{main::before{display:none!important}}
+
+/* Workflow tabs: animate only the changing rail content and indicator. */
+nav button::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;background:var(--orange);transform:scaleX(0);transform-origin:center;opacity:0;transition:transform .24s cubic-bezier(.2,.8,.2,1),opacity .18s ease}
+nav button.active::after{transform:scaleX(1);opacity:1}
+nav button.active{transition:color .18s ease,background-color .18s ease,box-shadow .18s ease}
+.tab-0 .controls{animation:workflowTab0 .2s cubic-bezier(.22,.75,.28,1) both}
+.tab-1 .controls{animation:workflowTab1 .2s cubic-bezier(.22,.75,.28,1) both}
+.tab-2 .controls{animation:workflowTab2 .2s cubic-bezier(.22,.75,.28,1) both}
+.tab-0 .canvasHead>div,.tab-1 .canvasHead>div,.tab-2 .canvasHead>div{animation:workflowHeadingIn .18s ease-out both}
+@keyframes workflowTab0{from{opacity:.76;transform:translate3d(-4px,0,0)}to{opacity:1;transform:none}}
+@keyframes workflowTab1{from{opacity:.76;transform:translate3d(4px,0,0)}to{opacity:1;transform:none}}
+@keyframes workflowTab2{from{opacity:.76;transform:translate3d(4px,0,0)}to{opacity:1;transform:none}}
+@keyframes workflowHeadingIn{from{opacity:.68;transform:translate3d(0,3px,0)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){nav button::after{transition:none!important}.tab-0 .controls,.tab-1 .controls,.tab-2 .controls,.tab-0 .canvasHead>div,.tab-1 .canvasHead>div,.tab-2 .canvasHead>div{animation:none!important}}
+@media print{nav button::after{display:none!important}.tab-0 .controls,.tab-1 .controls,.tab-2 .controls,.canvasHead>div{animation:none!important}}
+
+/* Balanced workflow navigation: equal targets, aligned labels and a quiet active surface. */
+nav{height:56px;display:grid;grid-template-columns:repeat(3,minmax(150px,210px));align-items:center;gap:6px}
+nav button{height:38px;display:flex;align-items:center;justify-content:center;padding:0 16px;border:1px solid transparent;border-radius:8px;line-height:1;white-space:nowrap}
+nav button.active{color:#7f3218;background:rgba(183,72,28,.10);border-color:rgba(183,72,28,.16);box-shadow:inset 0 1px 0 rgba(255,255,255,.72),0 4px 12px rgba(62,48,39,.08)}
+@media(hover:hover){nav button:not(.active):hover{color:var(--ink);background:rgba(255,255,255,.56);border-color:rgba(91,103,96,.14)}nav button.active:hover{color:#7f3218;background:rgba(183,72,28,.14);border-color:rgba(183,72,28,.2)}}
+@media(max-width:720px){nav{height:54px;padding-inline:10px;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px}nav button{height:40px;padding:0 6px;font-size:8px;white-space:normal;text-align:center;line-height:1.15}}
+.connectionConflictPrompt{border-left:4px solid #b7481c}
+.connectionConflictPrompt h3{margin-bottom:12px}
+.connectionConflictPrompt p{line-height:1.55}
