@@ -332,3 +332,6 @@ h1,h2,h3,.title h2{text-wrap:balance}
 @keyframes calculatedField{0%{border-color:#bdc1bc;background:#fff}35%{border-color:#c75b27;background:#fff4e9;box-shadow:0 0 0 3px #ee6f2d24}100%{border-color:#bdc1bc;background:#fff;box-shadow:none}}
 @media print{.modalShade,.validation,.connectHint,.designer,.linkGroup,.holeInspector,.metric b,.canvas{animation:none!important}.sectionHoles article{transform:none!important;box-shadow:none!important}}
 .subdrillCalculated .fields label:has(input[aria-label="Subdrill"])>div{animation:calculatedField .56s ease-out}
+/* Parameter inputs use a quiet neutral focus treatment; calculated fields keep their brief amber feedback. */
+.fields input:focus-visible{outline:0}
+.fields label:focus-within>div{border-color:#7e8982;box-shadow:0 0 0 2px #17271f14;background:#fff;transform:none}
