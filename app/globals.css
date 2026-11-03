@@ -595,3 +595,11 @@ nav button.active{color:#7f3218;background:rgba(183,72,28,.10);border-color:rgba
 .results .metric{margin-bottom:4px;padding-inline:6px;border:1px solid rgba(255,255,255,.86);border-radius:8px;background:rgba(255,255,255,.38);box-shadow:0 4px 12px rgba(31,42,37,.07),inset 0 1px 0 #fff}
 @media(max-width:720px){.workspace{gap:5px;padding:5px;border-radius:13px}}
 @media print{.workspace{gap:0!important;padding:0!important;border-radius:0!important;overflow:visible!important}.controls,.canvas,.results,.metric{border-radius:0!important;box-shadow:none!important}}
+
+/* Keep dense blast patterns at a readable pitch and expose both scroll axes. */
+.svg{scrollbar-width:thin;scrollbar-color:#88968e #eef0eb}
+.svg::-webkit-scrollbar{width:10px;height:10px}
+.svg::-webkit-scrollbar-track{background:#eef0eb}
+.svg::-webkit-scrollbar-thumb{border:2px solid #eef0eb;border-radius:8px;background:#88968e}
+.svg::-webkit-scrollbar-corner{background:#eef0eb}
+@media print{.svg{scrollbar-width:auto}.svg::-webkit-scrollbar{display:none}}
