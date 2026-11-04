@@ -604,3 +604,4 @@ nav button.active{color:#7f3218;background:rgba(183,72,28,.10);border-color:rgba
 .svg::-webkit-scrollbar-corner{background:#eef0eb}
 @media print{.svg{scrollbar-width:auto}.svg::-webkit-scrollbar{display:none}}
 .rowSummaries rect{fill:#fffdf8;stroke:#c5cbc5;stroke-width:.8}.rowSummaries text{fill:#445149;font-size:8px;font-weight:900;letter-spacing:.02em;pointer-events:none}.rowSummaries{pointer-events:none}@media print{.rowSummaries rect{fill:#fff!important;stroke:#777!important}.rowSummaries text{fill:#17271f!important}}
+.rowNomenclatureDivider{stroke:#b9c1bb;stroke-width:1.2;pointer-events:none}
