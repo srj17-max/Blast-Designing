@@ -605,3 +605,17 @@ nav button.active{color:#7f3218;background:rgba(183,72,28,.10);border-color:rgba
 @media print{.svg{scrollbar-width:auto}.svg::-webkit-scrollbar{display:none}}
 .rowSummaries rect{fill:#fffdf8;stroke:#c5cbc5;stroke-width:.8}.rowSummaries text{fill:#445149;font-size:8px;font-weight:900;letter-spacing:.02em;pointer-events:none}.rowSummaries{pointer-events:none}@media print{.rowSummaries rect{fill:#fff!important;stroke:#777!important}.rowSummaries text{fill:#17271f!important}}
 .rowNomenclatureDivider{stroke:#b9c1bb;stroke-width:1.2;pointer-events:none}
+.diagramFrame.canvasExpanded{position:fixed;inset:12px;z-index:1000;min-width:0;min-height:0;padding:10px;border:1px solid rgba(255,255,255,.9);border-radius:18px;background:#f8f7f1;box-shadow:0 0 0 100vmax rgba(18,30,24,.68),0 24px 70px rgba(18,30,24,.35);overflow:hidden;animation:canvasExpandIn .22s cubic-bezier(.2,.8,.2,1) both}.diagramFrame.canvasExpanded .svg{border-radius:12px;background:#fff}.diagramFrame.canvasExpanded .canvasZoom{top:18px;right:18px}.diagramFrame.canvasExpanded .canvasAnimationControls{top:18px;left:18px}.diagramFrame.canvasExpanded .canvasHoleActions{top:168px;right:25px}@keyframes canvasExpandIn{from{opacity:.65;transform:scale(.975)}to{opacity:1;transform:scale(1)}}@media(max-width:720px){.diagramFrame.canvasExpanded{inset:0;padding:4px;border-radius:0}.diagramFrame.canvasExpanded .canvasZoom{top:8px;right:8px}.diagramFrame.canvasExpanded .canvasAnimationControls{top:8px;left:8px}.diagramFrame.canvasExpanded .canvasHoleActions{top:176px;right:12px}}@media(prefers-reduced-motion:reduce){.diagramFrame.canvasExpanded{animation:none}}@media print{.diagramFrame.canvasExpanded{position:relative!important;inset:auto!important;padding:0!important;border:0!important;border-radius:0!important;box-shadow:none!important}}
+.designer:has(.canvasExpanded){transform:none!important;animation:none!important}
+/* Full canvas view keeps every action outside the drawing surface. */
+.diagramFrame.canvasExpanded{padding:8px 48px}
+.diagramFrame.canvasExpanded .canvasAnimationControls{top:10px;left:8px}
+.diagramFrame.canvasExpanded .northCompass{left:6px;bottom:10px}
+.diagramFrame.canvasExpanded .canvasZoom{top:10px;right:7px}
+.diagramFrame.canvasExpanded .canvasHoleActions{top:auto;right:9px;bottom:12px}
+.diagramFrame.canvasExpanded .canvasZoom button,.diagramFrame.canvasExpanded .canvasAnimationControls button,.diagramFrame.canvasExpanded .canvasHoleActions button{width:28px;min-width:28px;height:28px;min-height:28px;padding:0}
+.diagramFrame.canvasExpanded .canvasZoom,.diagramFrame.canvasExpanded .canvasAnimationControls,.diagramFrame.canvasExpanded .canvasHoleActions{gap:5px}
+.diagramFrame.canvasExpanded .canvasZoom{width:38px;padding:3px}
+.diagramFrame.canvasExpanded .canvasZoom b{width:28px;min-width:28px;height:20px}
+@media(max-width:720px){.diagramFrame.canvasExpanded{padding:4px 44px}.diagramFrame.canvasExpanded .canvasAnimationControls{top:7px;left:6px}.diagramFrame.canvasExpanded .northCompass{left:4px;bottom:7px}.diagramFrame.canvasExpanded .canvasZoom{top:7px;right:5px}.diagramFrame.canvasExpanded .canvasHoleActions{top:auto;right:7px;bottom:9px}}
+.diagramFrame.canvasExpanded{padding:8px 48px 8px 68px}@media(max-width:720px){.diagramFrame.canvasExpanded{padding:4px 44px 4px 64px}}
