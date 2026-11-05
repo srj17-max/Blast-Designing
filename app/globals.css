@@ -691,3 +691,12 @@ nav button.active{color:#7f3218;background:rgba(183,72,28,.10);border-color:rgba
 @media(max-width:720px){.diagramFrame.canvasExpanded .canvasLineActions{top:148px;left:6px}}
 @media(max-width:720px){.canvasHoleActions{top:auto!important;right:8px!important;bottom:10px!important}}
 @media print{.canvasLineActions{display:none!important}}
+
+/* Explain compact symbol controls without permanently covering the canvas. */
+.diagramFrame.canvasExpanded .canvasZoom button,.diagramFrame.canvasExpanded .canvasAnimationControls button,.diagramFrame.canvasExpanded .canvasLineActions button,.diagramFrame.canvasExpanded .canvasHoleActions button{position:relative}
+.diagramFrame.canvasExpanded .canvasZoom button::after,.diagramFrame.canvasExpanded .canvasAnimationControls button::after,.diagramFrame.canvasExpanded .canvasLineActions button::after,.diagramFrame.canvasExpanded .canvasHoleActions button::after{content:attr(aria-label);position:absolute;z-index:20;top:50%;width:max-content;max-width:170px;padding:5px 7px;border:1px solid rgba(255,255,255,.82);border-radius:5px;background:#17271ff2;box-shadow:0 5px 14px #17271f2e;color:#fff;font:700 8px/1.25 Arial,sans-serif;letter-spacing:.02em;text-align:left;white-space:normal;pointer-events:none;opacity:0;transform:translateY(-50%) scale(.96);transition:opacity .12s ease,transform .12s ease}
+.diagramFrame.canvasExpanded .canvasAnimationControls button::after,.diagramFrame.canvasExpanded .canvasLineActions button::after{left:36px;transform-origin:left center}
+.diagramFrame.canvasExpanded .canvasZoom button::after,.diagramFrame.canvasExpanded .canvasHoleActions button::after{right:36px;transform-origin:right center}
+.diagramFrame.canvasExpanded button:hover::after,.diagramFrame.canvasExpanded button:focus-visible::after{opacity:1;transform:translateY(-50%) scale(1)}
+@media(hover:none){.diagramFrame.canvasExpanded button::after{display:none}}
+@media print{.diagramFrame.canvasExpanded button::after{display:none!important}}
