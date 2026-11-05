@@ -709,3 +709,9 @@ nav button.active{color:#7f3218;background:rgba(183,72,28,.10);border-color:rgba
 .copyPreview text{fill:#fff;font-size:8px;font-weight:800}
 .copyPreview .copyPreviewHint{fill:#17271f;font-size:8px;font-weight:800;paint-order:stroke;stroke:#fffdf8;stroke-width:4px;stroke-linejoin:round}
 @media print{.copySelectionBox,.copyPreview{display:none!important}}
+
+/* Choice shown after marquee selection. */
+.selectionModePrompt{position:absolute;z-index:18;left:50%;top:50%;width:min(300px,calc(100% - 28px));padding:16px;border:1px solid rgba(255,255,255,.92);border-radius:12px;background:rgba(255,253,248,.96);box-shadow:0 16px 38px rgba(23,39,31,.24),inset 0 1px 0 #fff;backdrop-filter:blur(14px);transform:translate(-50%,-50%);display:grid;gap:6px;text-align:center}
+.selectionModePrompt strong{font:800 15px/1.2 Arial,sans-serif;color:#17271f}.selectionModePrompt span{font:600 10px/1.4 Arial,sans-serif;color:#66716b}.selectionModePrompt>div{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:7px}.selectionModePrompt button{height:34px;border:1px solid #bfc6c1;border-radius:7px;background:#fff;color:#17271f;font:800 10px Arial,sans-serif;cursor:pointer}.selectionModePrompt button:hover,.selectionModePrompt button:focus-visible{border-color:#b7481c;box-shadow:0 4px 10px rgba(23,39,31,.12);transform:translateY(-1px)}.selectionModePrompt button.apply{border-color:#b7481c;background:#c84f18;color:#fff}
+.copyPreview.move circle{fill:#b7481c}
+@media print{.selectionModePrompt{display:none!important}}
