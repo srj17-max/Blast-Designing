@@ -559,6 +559,68 @@ nav button.active{color:#7f3218;background:rgba(183,72,28,.10);border-color:rgba
 .connectionConflictPrompt h3{margin-bottom:12px}
 .connectionConflictPrompt p{line-height:1.55}
 
+/* Dialogs must remain usable while the canvas is in its fixed full-view layer. */
+.modalShade,.holeSectionModalShade{z-index:1200}
+
+/* Tablet widths keep tools in one compact rail so the drawing stays visible. */
+@media(min-width:600px) and (max-width:900px){
+  .canvas{padding:6px}
+  .canvasHead{height:40px;margin:0;padding:2px 5px}
+  .canvasHead .tag{font-size:6px}
+  .canvasHead h2{font-size:18px}
+  .designTools{
+    display:flex!important;
+    flex-wrap:nowrap!important;
+    align-items:center!important;
+    gap:4px!important;
+    min-height:42px;
+    padding:3px!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    scrollbar-width:thin;
+  }
+  .toolGroup,.positionTools{
+    display:flex!important;
+    grid-column:auto!important;
+    grid-row:auto!important;
+    flex:0 0 auto!important;
+    width:auto!important;
+    min-width:max-content!important;
+    min-height:34px!important;
+    height:34px!important;
+    gap:3px!important;
+    padding:2px 4px!important;
+  }
+  .toolGroup>small,.positionTools>small{
+    display:flex!important;
+    grid-column:auto!important;
+    min-height:0!important;
+    height:26px!important;
+    padding:0 4px 0 0!important;
+    border-right:1px solid #d9dbd5!important;
+    border-bottom:0!important;
+    font-size:5.5px!important;
+  }
+  .toolGroup button,.toolGroup input,.toolGroup select{
+    width:auto!important;
+    min-width:0!important;
+    height:26px!important;
+    min-height:26px!important;
+    padding:3px 6px!important;
+    font-size:7px!important;
+  }
+  .viewTools button{min-width:72px!important}
+  .sequenceTools select{width:125px!important}
+  .positionTools button{min-width:65px!important}
+  .positionTools input{width:38px!important}
+  .manualTools button{min-width:80px!important}
+  .manualTools label{display:flex!important;grid-template-columns:none!important;width:auto!important;font-size:6px!important}
+  .manualTools label input{width:42px!important}
+  .manualTools .dthDefaultControl select{width:66px!important}
+  .manualTools .selectionStatus{display:none!important}
+  .diagramFrame{min-height:0}
+}
+
 /* Compact navigation and side rails to prioritise the design palette. */
 @media(min-width:901px){
   main{grid-template-rows:54px 40px minmax(0,1fr)}
@@ -619,3 +681,13 @@ nav button.active{color:#7f3218;background:rgba(183,72,28,.10);border-color:rgba
 .diagramFrame.canvasExpanded .canvasZoom b{width:28px;min-width:28px;height:20px}
 @media(max-width:720px){.diagramFrame.canvasExpanded{padding:4px 44px}.diagramFrame.canvasExpanded .canvasAnimationControls{top:7px;left:6px}.diagramFrame.canvasExpanded .northCompass{left:4px;bottom:7px}.diagramFrame.canvasExpanded .canvasZoom{top:7px;right:5px}.diagramFrame.canvasExpanded .canvasHoleActions{top:auto;right:7px;bottom:9px}}
 .diagramFrame.canvasExpanded{padding:8px 48px 8px 68px}@media(max-width:720px){.diagramFrame.canvasExpanded{padding:4px 44px 4px 64px}}
+.canvasLineActions{display:none}
+.canvasHoleActions{top:auto!important;right:10px!important;bottom:12px!important}
+.diagramFrame.canvasExpanded .canvasLineActions{position:absolute;top:151px;left:8px;z-index:9;display:flex;flex-direction:column;gap:5px}
+.diagramFrame.canvasExpanded .canvasLineActions button{width:28px;min-width:28px;height:28px;min-height:28px;padding:0;border:1px solid #ffffffb8;border-radius:50%;background:linear-gradient(145deg,#74877d,#405249);box-shadow:0 4px 0 #29372f,0 6px 10px #17271f35;color:#fff;font-size:16px;font-weight:900;line-height:1;cursor:pointer}
+.diagramFrame.canvasExpanded .canvasLineActions button.active{background:linear-gradient(145deg,#e78345,#b64b20);box-shadow:0 4px 0 #793215,0 6px 10px #17271f35}
+.diagramFrame.canvasExpanded .canvasLineActions button:disabled{opacity:.42;filter:grayscale(.75);cursor:not-allowed;box-shadow:0 2px 0 #6f756f,0 3px 6px #17271f25}
+.diagramFrame.canvasExpanded .canvasLineActions button:active:not(:disabled){transform:translateY(3px);box-shadow:0 1px 0 #16231d,0 2px 5px #17271f38}
+@media(max-width:720px){.diagramFrame.canvasExpanded .canvasLineActions{top:148px;left:6px}}
+@media(max-width:720px){.canvasHoleActions{top:auto!important;right:8px!important;bottom:10px!important}}
+@media print{.canvasLineActions{display:none!important}}
