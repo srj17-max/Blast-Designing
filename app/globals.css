@@ -700,3 +700,12 @@ nav button.active{color:#7f3218;background:rgba(183,72,28,.10);border-color:rgba
 .diagramFrame.canvasExpanded button:hover::after,.diagramFrame.canvasExpanded button:focus-visible::after{opacity:1;transform:translateY(-50%) scale(1)}
 @media(hover:none){.diagramFrame.canvasExpanded button::after{display:none}}
 @media print{.diagramFrame.canvasExpanded button::after{display:none!important}}
+
+/* Marquee copy and paste feedback. */
+.canvasBackground{cursor:crosshair}
+.copySelectionBox{fill:rgba(183,72,28,.1);stroke:#b7481c;stroke-width:1.5;stroke-dasharray:6 4;pointer-events:none}
+.copyPreview{pointer-events:none;opacity:.78}
+.copyPreview circle{fill:#1d9a4f;stroke:#fff;stroke-width:3;filter:drop-shadow(0 5px 8px rgba(23,39,31,.25))}
+.copyPreview text{fill:#fff;font-size:8px;font-weight:800}
+.copyPreview .copyPreviewHint{fill:#17271f;font-size:8px;font-weight:800;paint-order:stroke;stroke:#fffdf8;stroke-width:4px;stroke-linejoin:round}
+@media print{.copySelectionBox,.copyPreview{display:none!important}}
